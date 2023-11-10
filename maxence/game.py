@@ -145,12 +145,12 @@ class Game:
 
     def game_over_verification(self, id_mob):
         
-        if self.map == 'level-1':
+        if self.map == 'carte_ascent':
             
             if id_mob.direction == 'right':
                 if id_mob.position[0] < self.player.position[0] < id_mob.position[0] + id_mob.sight_range:
                     if id_mob.position[1] - id_mob.sight_angle < self.player.position[1] < id_mob.position[1] + id_mob.sight_angle:
-                        for obj in pytmx.util_pygame.load_pygame('level-1.tmx').objects:
+                        for obj in pytmx.util_pygame.load_pygame('carte_ascent.tmx').objects:
                             print(f'{id_mob.position[0]} < {obj.x} < {self.player.position[1]}', obj.y , id_mob.position[1])
                             if obj.type == 'collision' and id_mob.position[0] < obj.x < self.player.position[1] and (obj.y - (obj.h)/2) < id_mob.position[1] (obj.y + (obj.h)/2): print('2')
                             else: None
@@ -158,21 +158,21 @@ class Game:
             elif id_mob.direction == 'left':
                 if id_mob.position[0] - id_mob.sight_range < self.player.position[0] < id_mob.position[0]:
                     if id_mob.position[1] - id_mob.sight_angle < self.player.position[1] < id_mob.position[1] + id_mob.sight_angle:
-                        for obj in pytmx.util_pygame.load_pygame('level-1.tmx').objects:
+                        for obj in pytmx.util_pygame.load_pygame('carte_ascent.tmx').objects:
                             if obj.type == 'collision' and id_mob.position[0] - id_mob.sight_range < obj.x < id_mob.position[0] and obj.y == id_mob.position[1]: print('2')
                             else: None
 
             elif id_mob.direction == 'up':
                 if id_mob.position[0] - id_mob.sight_angle < self.player.position[0] < id_mob.position[0] + id_mob.sight_angle:
                     if not(id_mob.position[1] > self.player.position[1] > (id_mob.position[1] + id_mob.sight_range)):
-                        for obj in pytmx.util_pygame.load_pygame('level-1.tmx').objects:
+                        for obj in pytmx.util_pygame.load_pygame('carte_ascent.tmx').objects:
                             if obj.type == 'collision' and not(id_mob.position[1] > self.player.position[1] > (id_mob.position[1] + id_mob.sight_range)) and obj.x == id_mob.position[0]: print('2')
                             else: None
 
             elif id_mob.direction == 'down':
                 if id_mob.position[0] - id_mob.sight_angle < self.player.position[0] < id_mob.position[0] + id_mob.sight_angle:
                     if not(id_mob.position[1] - id_mob.sight_range < self.player.position[1] < id_mob.position[1]):
-                        for obj in pytmx.util_pygame.load_pygame('level-1.tmx').objects:
+                        for obj in pytmx.util_pygame.load_pygame('carte_ascent.tmx').objects:
                             if obj.type == 'collision' and not(id_mob.position[1] - id_mob.sight_range < self.player.position[1] < id_mob.position[1]) and obj.x == id_mob.position[0]: print('2')
                             else: None
 
